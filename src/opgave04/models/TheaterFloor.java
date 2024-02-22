@@ -3,11 +3,17 @@ package opgave04.models;
 import java.util.ArrayList;
 
 public class TheaterFloor {
-    int[][] seats = { { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 }, { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 },
-            { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 }, { 10, 10, 20, 20, 20, 20, 20, 20, 10, 10 },
-            { 10, 10, 20, 20, 20, 20, 20, 20, 10, 10 }, { 10, 10, 20, 20, 20, 20, 20, 20, 10, 10 },
-            { 20, 20, 30, 30, 40, 40, 30, 30, 20, 20 }, { 20, 30, 30, 40, 50, 50, 40, 30, 30, 20 },
-            { 30, 40, 50, 50, 50, 50, 50, 50, 40, 30 } };
+    int[][] seats = {
+            { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 },
+            { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 },
+            { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 },
+            { 10, 10, 20, 20, 20, 20, 20, 20, 10, 10 },
+            { 10, 10, 20, 20, 20, 20, 20, 20, 10, 10 },
+            { 10, 10, 20, 20, 20, 20, 20, 20, 10, 10 },
+            { 20, 20, 30, 30, 40, 40, 30, 30, 20, 20 },
+            { 20, 30, 30, 40, 50, 50, 40, 30, 30, 20 },
+            { 30, 40, 50, 50, 50, 50, 50, 50, 40, 30 }
+    };
 
     /**
      * Hvis plads seat på række row er ledig reserveres pladsen og der returneres true
@@ -19,8 +25,13 @@ public class TheaterFloor {
      */
 
     public boolean buySeat(int row, int seat) {
-        // TODO
-        return false;
+        if(seats[row][seat] != 0) {
+            seats[row][seat] = 0;
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     /**
@@ -32,13 +43,32 @@ public class TheaterFloor {
      * @return
      */
     public boolean buySeat(int price) {
-        // TODO
+        for (int i = 0; i < seats.length; i++) {
+            for (int j = 0; j < seats[i].length; j++) {
+                if(seats[i][j] == price) {
+                    seats[i][j] = 0;
+                    return true;
+                }
+            }
+        }
         return false;
-
     }
 
     public void printTheaterFloor() {
-        // TODO
+        System.out.println("   Sæde :  1  2  3  4  5  6  7  8  9  10");
+        for (int i = 0; i < seats.length; i++) {
+            System.out.print("Række " + i +  " :  ");
+            for (int j = 0; j < seats[i].length; j++) {
+                if(seats[i][j] == 0) {
+                    System.out.print("-- ");
+                }
+                else {
+                    System.out.print(seats[i][j] + " ");
+                }
+            }
+            System.out.println();
+        }
+
     }
 }
 

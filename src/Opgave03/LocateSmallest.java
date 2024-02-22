@@ -11,7 +11,7 @@ public class LocateSmallest {
 
         int[] location = locateSmallest(array);
         for (int i = 0; i < location.length; i++) {
-            System.out.println(location[i]);
+            System.out.print(location[i] + " ");
         }
 
     }
