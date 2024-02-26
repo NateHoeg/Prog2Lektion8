@@ -1,7 +1,5 @@
 package opgave04.models;
 
-import java.util.ArrayList;
-
 public class TheaterFloor {
     int[][] seats = {
             { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 },
@@ -25,8 +23,10 @@ public class TheaterFloor {
      */
 
     public boolean buySeat(int row, int seat) {
-        if(seats[row][seat] != 0) {
-            seats[row][seat] = 0;
+        if(seats[row - 1][seat - 1] != 0) {
+            //Minus 1 begge steder fordi den der booker sæde,
+            //nok ikke ved at det teknisk set starter i 0
+            seats[row - 1][seat - 1] = 0;
             return true;
         }
         else {

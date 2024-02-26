@@ -11,8 +11,6 @@ public class Opgave01 {
                 {1, 2, 3, 4, 5}
         };
 
-        EkstraOpgave ting = new EkstraOpgave();
-
         TwoDimensionalIntArray twoDimensionalIntArray = new TwoDimensionalIntArray(numbers);
 
         twoDimensionalIntArray.setValueAt(2, 4, 101);
@@ -21,7 +19,8 @@ public class Opgave01 {
         System.out.println(twoDimensionalIntArray.sumColumn(3));
         System.out.println(twoDimensionalIntArray.sumAll());
         twoDimensionalIntArray.print();
-        twoDimensionalIntArray.map(ting);
+        //twoDimensionalIntArray.map(new EkstraOpgave()); //En måde at gøre det på
+        twoDimensionalIntArray.map(a -> a + 2); //En nemmere måde at gøre det på
         twoDimensionalIntArray.print();
     }
 }

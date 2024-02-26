@@ -31,7 +31,6 @@ public class TwoDimensionalIntArray {
         for (int i = 0; i < intArray.length; i++) {
             sum += intArray[i][column];
         }
-
         return sum;
     }
 
